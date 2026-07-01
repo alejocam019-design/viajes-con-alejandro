@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruta Low Cost | Guía de viajes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="nav">
+        <div class="logo"><span>🌍</span> Ruta Low Cost</div>
+        <div class="nav-links">
+            <a href="#destinos">Destinos</a>
+            <a href="#visor">Guía</a>
+            <a href="#consejos">Consejos</a>
+            <a href="#contacto">Contacto</a>
+            <button class="icon-button" id="modoOscuro" title="Cambiar modo">🌙</button>
+        </div>
+    </nav>
+
+    <header>
+        <div class="hero">
+            <span class="etiqueta">✈️ @tuguia_viajes</span>
+            <h1>Viajes baratos con aspecto de gran aventura</h1>
+            <p>Guías visuales para comparar destinos, guardar favoritos y preparar rutas con presupuesto, clima, moneda, comida y lugares imprescindibles.</p>
+            <div class="acciones">
+                <a class="boton" href="#destinos">Ver destinos</a>
+                <a class="boton boton-secundario" href="#contacto">Pedir recomendación</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="resumen revelar">
+            <div class="dato">
+                <strong id="totalDestinos">0</strong>
+                <span>destinos</span>
+            </div>
+            <div class="dato">
+                <strong>2</strong>
+                <span>continentes</span>
+            </div>
+            <div class="dato">
+                <strong id="totalFavoritos">0</strong>
+                <span>favoritos</span>
+            </div>
+            <div class="dato">
+                <strong>5</strong>
+                <span>filtros rápidos</span>
+            </div>
+        </section>
+
+        <section id="destinos" class="revelar">
+            <div class="cabecera-seccion">
+                <div>
+                    <h2>Destinos recomendados</h2>
+                    <p>Filtra por continente o tipo de viaje, guarda favoritos y abre cada destino con una guía visual completa.</p>
+                </div>
+                <span class="contador" id="contadorVisibles"></span>
+            </div>
+
+            <div class="panel">
+                <div class="buscador">
+                    <input id="buscadorDestinos" type="search" placeholder="Buscar por Tokio, playa, Europa, moneda, comida..." oninput="actualizarDestinos()">
+                </div>
+                <div class="filtros">
+                    <button class="filtro activo" data-filtro="todos" onclick="cambiarFiltro('todos', this)">Todos</button>
+                    <button class="filtro" data-filtro="europa" onclick="cambiarFiltro('europa', this)">Europa</button>
+                    <button class="filtro" data-filtro="asia" onclick="cambiarFiltro('asia', this)">Asia</button>
+                    <button class="filtro" data-filtro="playa" onclick="cambiarFiltro('playa', this)">Playa</button>
+                    <button class="filtro" data-filtro="ciudad" onclick="cambiarFiltro('ciudad', this)">Ciudad</button>
+                    <button class="filtro" data-filtro="romantico" onclick="cambiarFiltro('romantico', this)">Romántico</button>
+                </div>
+            </div>
+
+            <div class="destinos" id="listaDestinos"></div>
+            <p id="sinResultados" class="sin-resultados">No hay destinos con esa búsqueda. Prueba con Asia, Europa, playa, Tokio o barato.</p>
+        </section>
+
+        <section id="visor" class="visor revelar">
+            <div class="visor-grid">
+                <div>
+                    <h2 id="visorTitulo"></h2>
+                    <p id="visorTexto" class="texto-suave"></p>
+                    <div id="visorMeta" class="meta"></div>
+                    <div id="infoDestino" class="info-grid"></div>
+                    <h3>Ruta recomendada</h3>
+                    <ol id="rutaDestino" class="lista-ruta"></ol>
+                    <div id="detalleExtra" class="detalle-extra"></div>
+                </div>
+                <div>
+                    <div id="heroDestino" class="hero-destino">
+                        <a id="enlaceMapa" class="boton mapa" target="_blank" rel="noopener">Abrir en Maps</a>
+                    </div>
+                    <div id="galeria" class="galeria"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="consejos" class="revelar">
+            <div class="cabecera-seccion">
+                <div>
+                    <h2>Consejos para viajar mejor</h2>
+                    <p>Pequeñas decisiones que acercan la web a una guía práctica, visual y profesional.</p>
+                </div>
+            </div>
+            <div class="consejos">
+                <div class="consejo">
+                    <span class="icono">💸</span>
+                    <h3>Presupuesto claro</h3>
+                    <p class="texto-suave">Cada destino muestra una horquilla de gasto y nivel económico para comparar rápido.</p>
+                </div>
+                <div class="consejo">
+                    <span class="icono">🗺️</span>
+                    <h3>Ruta lista</h3>
+                    <p class="texto-suave">Las rutas están pensadas por zonas para ahorrar tiempo y transporte.</p>
+                </div>
+                <div class="consejo">
+                    <span class="icono">❤️</span>
+                    <h3>Favoritos</h3>
+                    <p class="texto-suave">Guarda destinos en este navegador para volver a ellos cuando sigas planeando.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="contacto revelar">
+            <div>
+                <h2>Pide recomendación</h2>
+                <p class="texto-suave">Cuéntame tu estilo de viaje y la web te sugiere una primera idea.</p>
+                <div class="acciones">
+                    <a class="boton boton-secundario" href="https://instagram.com/tuguia_viajes/" target="_blank" rel="noopener">Instagram</a>
+                    <a class="boton boton-secundario" href="https://www.tiktok.com/@tuguia_viajes" target="_blank" rel="noopener">TikTok</a>
+                </div>
+                <p class="resultado" id="resultadoContacto"></p>
+            </div>
+            <form onsubmit="enviarFormulario(event)">
+                <input id="nombre" type="text" placeholder="Tu nombre" required>
+                <select id="tipoViaje" required>
+                    <option value="">Tipo de viaje</option>
+                    <option value="ciudad">Ciudad</option>
+                    <option value="playa">Playa</option>
+                    <option value="romantico">Romántico</option>
+                    <option value="asia">Asia</option>
+                    <option value="europa">Europa</option>
+                </select>
+                <textarea id="mensaje" placeholder="Cuántos días tienes y qué te gustaría ver"></textarea>
+                <button type="submit">Recibir recomendación</button>
+            </form>
+        </section>
+    </main>
+
+    <button id="volverArriba" class="arriba" title="Volver arriba">↑</button>
+
+    <div id="modalGaleria" class="modal" onclick="cerrarGaleria()">
+        <button class="cerrar-modal" type="button">×</button>
+        <img id="imagenModal" src="" alt="Imagen ampliada" onclick="event.stopPropagation()">
+    </div>
+
+    <footer>
+        <p>Ruta Low Cost | @tuguia_viajes | Proyecto creado por Alejandro Campos</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
