@@ -1,20 +1,33 @@
 # Ruta Low Cost
 
-Web de guia de viajes low cost creada con HTML, CSS y JavaScript.
+Proyecto web desarrollado como práctica de desarrollo web utilizando HTML, CSS y JavaScript.
 
-## Funciones
+## Tecnologías utilizadas
 
-- Buscador de destinos.
-- Filtros por continente y tipo de viaje.
-- Favoritos guardados en el navegador.
-- Vista detallada con ruta, presupuesto, clima, moneda, galeria y enlace a Maps.
-- Modo oscuro.
-- Formulario de recomendacion.
+- HTML5
+- CSS3
+- JavaScript
+- Git
+- GitHub Pages
 
-## Publicar en GitHub Pages
+## Funcionalidades
 
-1. Crea un repositorio publico en GitHub.
-2. Sube estos archivos al repositorio.
-3. Entra en `Settings > Pages`.
-4. Elige la rama `main` y la carpeta `/root`.
-5. Guarda y espera a que GitHub genere el enlace.
+- Buscador de destinos
+- Filtros por continente y tipo de viaje
+- Sistema de favoritos
+- Modo oscuro
+- Guías detalladas de destinos
+- Diseño responsive para móvil y ordenador
+- Integración con Google Maps
+
+## Destinos incluidos
+
+Roma, París, Venecia, Mallorca, Barcelona, Tokio, Kioto, Seúl, Bangkok, Hanói, Singapur, Bali, Dubái, Kuala Lumpur y Taipéi.
+
+## Demo
+
+https://alejocam019-design.github.io/viajes-con-alejandro/
+
+## Autor
+
+Alejandro Campos
